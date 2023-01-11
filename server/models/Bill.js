@@ -1,8 +1,14 @@
 import mongoose from 'mongoose';
 
 const billSchema = mongoose.Schema({
-    roomId: String,
-    userId: String,
+    roomId: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Room"
+    },
+    userId: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User"
+    },
     bookingid:String,
     billAmount: String,
     isPaid:String

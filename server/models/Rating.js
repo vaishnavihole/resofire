@@ -1,8 +1,14 @@
 import mongoose from "mongoose";
 
 const ratingSchema = mongoose.Schema({
-    userId: String,
-    roomId: String,
+    userId: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User"
+    },
+    roomId: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Room"
+    },
     stars: String,
     feedBack: String
 },{
