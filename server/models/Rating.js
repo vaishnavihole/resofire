@@ -9,8 +9,8 @@ const ratingSchema = mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"Room"
     },
-    stars: String,
-    feedBack: String
+    stars: Number,
+    feedback: String
 },{
     timestamps: true
 });

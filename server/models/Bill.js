@@ -10,8 +10,8 @@ const billSchema = mongoose.Schema({
         ref:"User"
     },
     bookingid:String,
-    billAmount: String,
-    isPaid:String
+    billAmount: Number,
+    isPaid:Boolean
 },{
     timestamps: true
 });
