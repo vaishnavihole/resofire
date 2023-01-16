@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import User from './models/User.js'
 import Room from "./models/Room.js";
 import Booking from "./models/Booking.js";
+import Bill from "./models/Bill.js";
 
 const app = express();
 app.use(express.json())
@@ -182,7 +183,50 @@ app.get('/bookingById', async(req, res)=>{
         
       })
 
+      app.post('/bill', async (req, res)=>{
+        const {roomId, userId, bookingid, billAmount, isPaid } = req.body
 
+        const newBill = new Bill({
+          roomId:roomId,
+          userId:userId,
+          bookingid:bookingid,
+          billAmount:billAmount,
+          isPaid:isPaid
+        })
+        const savedBill = await newBill.save()
+
+        res.send({
+          status: true,
+          data:savedBill,
+          message: 'Bill featched successfully'
+        })
+      })
+
+      app.get('/billingsByRoomId', async(req, res)=>{
+        const {roomId} = req.query
+        const billings = await Bill.find({
+               roomId:roomId
+        })
+           res.send({
+            status: true,
+            message: 'Billings feateched successfully...🤗',
+            date: billings
+           })
+          
+        })
+
+        app.get('/billingByUserId', async(req, res)=>{
+          const {userId} = req.query
+          const billings = await billings.find({
+                  userId:userId
+          })
+             res.send({
+              status: true,
+              message: 'Billings feateched successfully...🤗',
+              date: billings
+             })
+            
+          })
 
 mongoose.connect(process.env.MONGO_DB_URL, () => {
   console.log("Connected to mongo DB📦")
