@@ -2,7 +2,7 @@ import './App.css';
 import {BrowserRouter, Routes,Route} from 'react-router-dom';
 import Login from './views/Login/Login';
 import Signup from './views/Signup/Signup';
-import AllRooms from './views/Allrooms/AllRooms'
+import AllRooms from './views/AllRooms/AllRooms'
 
 function App() {
   return (
