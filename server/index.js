@@ -11,10 +11,9 @@ const app = express();
 app.use(express.json())
 
 app.post('/signup', async (req, res) => {
-  const { name, email, password } = req.body
+  const { fullName, email,  password } = req.body
   const user = new User({
     fullName: fullName,
-    mobile: mobile,
     email: email,
     password: password
   })
