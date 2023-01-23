@@ -15,10 +15,7 @@ function AllRooms() {
     loadData()
   },[])
   return (
-    <div className='all-rooms-container'>{
-      console.log(allRoomsData)
-    }
-
+    <div className='all-rooms-container'>
      {
       allRoomsData.map((singleRoomData)=>{
         return(
