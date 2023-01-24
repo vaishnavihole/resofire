@@ -4,6 +4,7 @@ import swal from 'sweetalert';
 import ImgLock from './lock.png'
 import ImgSignup from './signup-image.png'
 import "./Signup.css";
+import Navbar from "../../components/Navbar/Navbar";
 
 function Signup() {
   const [fullName, setFullName] = useState("");
@@ -41,6 +42,8 @@ function Signup() {
 
 
   return (
+    <div>
+      <Navbar />
     <div className="singup-main-container">
         <div>
           <img className='signup-image' src={ImgSignup} />
@@ -69,6 +72,7 @@ function Signup() {
             </form>
           </div>
         </div>
+      </div>
       </div>
    
   )
