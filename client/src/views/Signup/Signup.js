@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from 'axios';
 import swal from 'sweetalert';
+import ImgLock from './lock.png'
+import ImgSignup from './signup-image.png'
 import "./Signup.css";
 
 function Signup() {
@@ -8,26 +10,26 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  async  function userSignup(){
-    const  response = await axios.post('/signup',{
-        fullName: fullName,
-        email: email,
-        password: password
+  async function userSignup() {
+    const response = await axios.post('/signup', {
+      fullName: fullName,
+      email: email,
+      password: password
     })
     if (response.data.success === true) {
-        swal({
-            title: 'success!',
-            text: "Signup successfully..🤗",
-            icon: 'success'
-        })
-        window.location.href="/login"
+      swal({
+        title: 'success!',
+        text: "Signup successfully..🤗",
+        icon: 'success'
+      })
+      window.location.href = "/login"
     }
     else {
-        swal({
-            title: 'error!',
-            text: response.data.message,
-            icon: 'error'
-        })
+      swal({
+        title: 'error!',
+        text: response.data.message,
+        icon: 'error'
+      })
     }
 
     console.log(response.data)
@@ -39,17 +41,13 @@ function Signup() {
 
 
   return (
-    <div>
-      <h1 className="text-center">Signup</h1>
-      <div className="form-container">
-        <div className="row">
-          <div className="col-md-6 bg-primary">
-            <h2>Feat Image</h2>
-          </div>
-          <div className="col-md-6 bg-danger">
-            <div>
-
-            </div>
+    <div className="singup-main-container">
+        <div>
+          <img className='signup-image' src={ImgSignup} />
+        </div>
+        <div>
+          <div className="signup-form-container">
+            <img className='signup-form-header-image' src={ImgLock} />
             <form>
               <div>
                 <input className='signup-form-input' type='text' placeholder='Enter FullName' value={fullName}
@@ -66,13 +64,13 @@ function Signup() {
                   onChange={(e) => { setPassword(e.target.value) }} required />
               </div>
 
-              <button className='login-button'
+              <button className='signup-button'
                 type="button" onClick={userSignup}>Signup</button>
             </form>
           </div>
         </div>
       </div>
-    </div>
+   
   )
 }
 
