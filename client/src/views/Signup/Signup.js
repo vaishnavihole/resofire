@@ -5,6 +5,7 @@ import ImgLock from './lock.png'
 import ImgSignup from './signup-image.png'
 import "./Signup.css";
 import Navbar from "../../components/Navbar/Navbar";
+import Footer from '../../components/Footer/Footer';
 
 function Signup() {
   const [fullName, setFullName] = useState("");
@@ -73,6 +74,7 @@ function Signup() {
           </div>
         </div>
       </div>
+      <Footer />
       </div>
    
   )

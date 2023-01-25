@@ -4,6 +4,7 @@ import swal from 'sweetalert'
 import IMGlock from './lock.png'
 import axios from 'axios'
 import Navbar from '../../components/Navbar/Navbar'
+import Footer from '../../components/Footer/Footer';
 
 
 
@@ -66,7 +67,7 @@ function Login() {
         </form>
 
       </div>
-
+    <Footer />
     </div>
 
   )

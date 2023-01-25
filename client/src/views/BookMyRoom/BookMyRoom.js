@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import './BookMyRoom.css'
 import axios from 'axios';
 import swal from 'sweetalert'
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 import { json, useSearchParams } from "react-router-dom";
 
 
@@ -52,6 +54,8 @@ function BookMyRoom() {
   }, [])
 
   return (
+    <div>
+      <Navbar />
     <div className='book-my-room-container'>
       <div className='room-image-card'>
         <img className='feature-room-image' src={roomDetails?.imgUrl} />
@@ -76,7 +80,9 @@ function BookMyRoom() {
           <input className='book-button' type="button" value="Book Now" onClick={bookRoom} />
         </div>
       </div>
-
+     
+    </div>
+    <Footer />
     </div>
   )
 }
