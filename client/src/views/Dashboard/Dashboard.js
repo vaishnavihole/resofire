@@ -6,7 +6,7 @@ import Footer from '../../components/Footer/Footer';
 function Dashboard() {
   return (
     
-    <div>
+    <div className='dashboard-container'>
         <Navbar />
         <Footer />
     </div>

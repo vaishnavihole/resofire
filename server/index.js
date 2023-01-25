@@ -1,6 +1,8 @@
 import express from "express";
 import dotenv from 'dotenv';
 dotenv.config();
+import path from 'path';
+const __dirname = path.resolve();
 import mongoose from "mongoose";
 import User from './models/User.js'
 import Room from "./models/Room.js";
@@ -230,6 +232,14 @@ app.get('/bookingById', async(req, res)=>{
 mongoose.connect(process.env.MONGO_DB_URL, () => {
   console.log("Connected to mongo DB📦")
 })
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+
+  app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+  });
+}
 
 app.listen(process.env.PORT || 5000, () => {
   console.log('Server started running on port 5000📦');
