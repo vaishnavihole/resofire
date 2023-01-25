@@ -6,7 +6,11 @@ import MumbaiImg from './mumbai.png'
 import PuneImg from './pune.png'
 import AhmednagarImg from './ahmednagar.png'
 import NagpurImg from './nagpur.png'
+import CleaningImg from './cleaning.png'
+import BurgerImg from './burger.png'
+import WiFiImg from './wifi.png'
 import Navbar from '../../components/Navbar/Navbar'
+import Footer from '../../components/Footer/Footer';
 
 function Home() {
   return (
@@ -58,11 +62,37 @@ function Home() {
             <h4 className='text-center mt-2'>Nagpur</h4>
           </div>
 
-
-
         </div>
       </div>
+
+      <div className='features-container'>
+        <h2 className='features-container-title'>Our Key Features</h2>
+
+        <div className='features-card-containers'>
+          <div className='feature-card'>
+            <img className='cleaning-img' src={CleaningImg} />
+            <h5 className='feature-card-title'>24x7 Housekeeping</h5>
+            <p className='feature-card-discription'>Dedicated staff for Housekeeping. On request Housekeeping is available.</p>
+          </div>
+
+          <div className='feature-card'>
+            <img className='cleaning-img' src={BurgerImg} />
+            <h5 className='feature-card-title'>Food Services</h5>
+            <p className='feature-card-discription'>We dont just stop for room. We have food service facility you can order one click.</p>
+          </div>
+
+          <div className='feature-card'>
+            <img className='cleaning-img' src={WiFiImg} />
+            <h5 className='feature-card-title'>Amenities</h5>
+            <p className='feature-card-discription'>Wi-Fi, Blanket, pillow etc. Will be provided all these will be provided with no charges. </p>
+          </div>
+
+        </div>
+         
+      </div>
+      <Footer />
     </div>
+
   )
 }
 

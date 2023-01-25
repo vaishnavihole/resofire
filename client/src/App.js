@@ -3,8 +3,8 @@ import {BrowserRouter, Routes,Route} from 'react-router-dom';
 import Home from './views/Home/Home';
 import Login from './views/Login/Login';
 import Signup from './views/Signup/Signup';
-import AllRooms from './views/AllRooms/AllRooms'
-import Dashboard from './views/Dashboard/Dashboard'
+import AllRooms from './views/AllRooms/AllRooms';
+import Dashboard from './views/Dashboard/Dashboard';
 import BookMyRoom from './views/BookMyRoom/BookMyRoom';
 
 function App() {
