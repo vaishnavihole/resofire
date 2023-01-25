@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './BookMyRoom.css'
 import axios from 'axios';
-import { useSearchParams } from "react-router-dom";
+import swal from 'sweetalert'
+import { json, useSearchParams } from "react-router-dom";
 
 
 function BookMyRoom() {
@@ -16,10 +17,29 @@ function BookMyRoom() {
   async function bookRoom() {
     const response = await axios.post('/booking', {
       roomId: roomId,
-      userId: userId,
+      userId: JSON.parse(localStorage.getItem('user'))._id,
       bookingStartDate: bookingStartDate,
       bookingEndDate: bookingEndDate
     })
+
+    
+    if (response.data.status === true) {
+      
+      await swal({
+        title: 'success!',
+        text: response.data.message,
+        icon: 'success'
+      })
+      window.location.href = "/dashboard"
+    }
+    else {
+     await swal({
+        title: 'error!',
+        text: response.data.message,
+        icon: 'error'
+      })
+    }
+
     console.log(response.data);
   }
 
